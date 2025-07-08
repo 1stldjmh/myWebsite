@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stldjmh的个人网站</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- 基础 Favicon -->
+    <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16">
+    <!-- Apple Touch Icon (iOS) -->
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <!-- Android PWA 配置 -->
+    <link rel="manifest" href="icons/site.webmanifest">
+    <!-- 主题色（可选） -->
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <header>
+        <h1>🐲 你好，我是Stldjmh</h1>
+        <p>欢迎来到我的个人网站</p>
+    </header>
+    <nav>
+        <h2>📌 快速导航</h2>
+        <ul>
+            <!-- 
+            <li> HTML 元素用于表示列表中的项目。它必须包含在一个父元素中：有序列表（<ol>）、无序列表（<ul>）或菜单（<menu>）。
+            在菜单和无序列表中，列表项通常使用项目符号显示。在有序列表中，通常在左侧显示一个升序计数器，如数字或字母。 
+            -->
+            <!--
+            锚点定位 
+            href="#"是一种临时链接的写法，这样写就是说这个链接目前不可用，点击了也不会有作用，还是会跳转到本页，当#被有效链接替换才会起作用
+            <a href="#锚名">连接到当前页并指向锚点，经常是在页内定位时使用锚点
+            -->
+            <li><a href="#about">关于我</a></li>
+            <li><a href="#projects">项目展示</a></li>
+            <li><a href="#contact">联系方式</a></li>
+            <li><a href="#guestbook">留言板</a></li>
+        </ul>
+    </nav>
+    <section id="about">
+        <h2>👨‍💻 关于我</h2>
+        <p>计算机科学专业大二学生，暑假ing</p>
+        <h3>技术栈</h3>
+        <ul class="skills">
+            <li>编程语言：C,C++，Java，Python</li>
+            <li>前端：HTML,CSS,JS</li>
+            <li>工具：Git,VSCode...</li>
+        </ul>
+    </section>
+    <section id="projects">
+        <h2>🛠️ 项目展示</h2>
+        <div class="project-card">
+            <h3>苍穹外卖</h3>
+            <p>基于SpringBoot实现，敬请期待</p>
+            <a href="#" class="demo-btn">查看Demo</a>
+        </div>
+        <div class="project-card">
+            <h3>欢乐斗地主</h3>
+            <p>基于网络编程，敬请期待</p>
+            <a href="#" class="demo-btn">查看源码</a>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>📮 联系方式</h2>
+        <ul class="contact-list">
+            <li>
+                <span class="contact-icon">📧</span>
+                QQ邮箱：<a href="mailto:mzg861@qq.com" class="email-link">mzg861@qq.com</a>
+                <span class="hint">(需安装邮件客户端)</span>
+            </li>
+            <li>
+                <span class="contact-icon">🐱</span>
+                <!-- <a>标签的target属性规定在何处打开链接文档。
+                _blank	在新窗口中打开被链接文档。
+                _self	默认。在相同的框架中打开被链接文档。 -->
+                GitHub：<a href="https://github.com/1stldjmh" target="_blank">github.com/1stldjmh</a>
+            </li>
+        </ul>
+    </section>
+    <section id="guestbook">
+        <h2>📃 留言板</h2>
+        </div>
+        <!-- 暂时放弃Github API,使用Formspree -->
+        <form id="guestbookForm" action="https://formspree.io/f/myzjqpjy" method="POST">
+            <input type="hidden" name="_subject" value="新留言">
+            <div class="form-group">
+                <!-- <label>标签用于关联表单控件（如<input>、<textarea>等），提高表单的可用性和可访问性。 -->
+                <label for="name">昵称:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="message">留言内容:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit">提交留言</button>
+        </form>
+    </section>
+    <footer>
+        <hr>
+        <p>© <span id="current-year"></span> Stldjmh - 使用HTML/CSS/JS构建</p>
+    </footer>
+    
+    <script src="scripts/app.js"></script>
+</body>
+</html>
