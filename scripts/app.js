@@ -27,9 +27,13 @@ document.getElementById('guestbookForm').addEventListener('submit', async functi
     const correctName = "stldjmh"; 
     if(wechatName !== correctName) {
         const input = document.querySelector('[name="wechat_verify"]');
-        input.classList.add('error'); // 添加CSS错误样式
+        input.classList.add('theWrong'); // 添加CSS错误样式
         input.focus(); // 聚焦到错误输入框
-        alert("验证失败，请输入正确的微信名");
+        // 延迟弹窗和移除，让浏览器先渲染样式
+        setTimeout(() => {
+            alert("验证失败，请输入正确的微信名");
+            input.classList.remove('theWrong');
+        }, 50); // 50ms足够渲染
         return false;
     }
     const form = e.target;

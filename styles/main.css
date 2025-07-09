@@ -142,8 +142,8 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
-.error {
-    border-color: red;
+.theWrong {
+    border: 2px solid red;
     animation: shake 0.5s;
 }
 @keyframes shake {
