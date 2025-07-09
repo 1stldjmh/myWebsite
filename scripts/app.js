@@ -17,6 +17,43 @@ document.querySelectorAll('.project-card').forEach(card => {
         }, 300);/* 300毫秒后恢复原阴影效果 */
     });
 });
-document.getElementById('guestbookForm').addEventListener('submit', function(e) {
+/* document.getElementById('guestbookForm').addEventListener('submit', function(e) {
     e.target.querySelector('button').textContent = '提交中...';
-  });
+}); */
+/* AJAX提交 */
+document.getElementById('guestbookForm').addEventListener('submit', async function(e) {
+    e.preventDefault();//阻止表单默认提交行为（页面跳转）
+    const wechatName = document.querySelector('[name="wechat_verify"]').value.trim();
+    const correctName = "stldjmh"; 
+    if(wechatName !== correctName) {
+        const input = document.querySelector('[name="wechat_verify"]');
+        input.classList.add('error'); // 添加CSS错误样式
+        input.focus(); // 聚焦到错误输入框
+        alert("验证失败，请输入正确的微信名");
+        return false;
+    }
+    const form = e.target;
+    const button = form.querySelector('button');
+    button.disabled = true;// 禁用按钮并修改文字，防止重复提交
+    button.textContent = '提交中...';
+    try {
+        // 使用fetch API异步提交表单数据
+        const response = await fetch(form.action, {
+            method: 'POST',// 使用HTTP POST方法发送请求
+            body: new FormData(form),// 将表单数据作为请求体
+            headers: { 'Accept': 'application/json' } // 告诉服务器希望接收JSON格式的响应
+        });
+        if (response.ok) {// 检查响应状态
+            alert('留言成功！');
+            form.reset();
+        } else {
+            throw new Error('提交失败');
+        }
+    } catch (error) {
+        alert('提交出错，请稍后再试');
+        console.error(error);
+    } finally {
+        button.textContent = '提交留言';
+        button.disabled = false;
+    }
+});

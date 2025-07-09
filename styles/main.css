@@ -106,7 +106,7 @@ hr {
     border-color:#000;
     background:#fff;
 }
-.guestbook-form {
+#guestbookForm {
     background: #f5f5f5;
     padding: 20px;
     border-radius: 8px;
@@ -142,20 +142,12 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #45a049;
 }
-.guestbook-entry {
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-    margin-bottom: 15px;
+.error {
+    border-color: red;
+    animation: shake 0.5s;
 }
-.guestbook-entry h3 {
-    margin: 0 0 5px 0;
-    color: #333;
-}
-.guestbook-entry p {
-    margin: 0;
-    color: #666;
-}
-.guestbook-entry small {
-    color: #999;
-    font-size: 0.8em;
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
 }

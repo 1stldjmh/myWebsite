@@ -80,11 +80,17 @@
     </section>
     <section id="guestbook">
         <h2>📃 留言板</h2>
-        </div>
         <!-- 暂时放弃Github API,使用Formspree -->
         <form id="guestbookForm" action="https://formspree.io/f/myzjqpjy" method="POST">
-            <input type="hidden" name="_captcha" value="false">
+            <!-- 通过验证开关和蜜罐陷阱过滤垃圾提交 -->
+            <input type="hidden" name="_captcha" value="true"><!-- 是否启用 CAPTCHA 验证（防止垃圾邮件） -->
+            <input type="hidden" name="_gotcha" style="display:none">
             <input type="hidden" name="_subject" value="新留言">
+            <div class="form-group">
+                <label>请输入站主的微信名以验证</label>
+                <!-- placeholder灰色提示文本 -->
+                <input type="text" name="wechat_verify" required placeholder="请输入...">
+            </div>
             <div class="form-group">
                 <!-- <label>标签用于关联表单控件（如<input>、<textarea>等），提高表单的可用性和可访问性。 -->
                 <label for="name">昵称:</label>
@@ -101,7 +107,6 @@
         <hr>
         <p>© <span id="current-year"></span> Stldjmh - 使用HTML/CSS/JS构建</p>
     </footer>
-    
     <script src="scripts/app.js"></script>
 </body>
 </html>
